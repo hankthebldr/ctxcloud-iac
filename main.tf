@@ -36,6 +36,15 @@ module "honeypot" {
   dshield_email    = var.dshield_email
   dshield_api_key  = var.dshield_api_key
 }
+# EC2 Instance for ctxcloud - 
+module "ec2" {
+  source          = "./modules/ec2"
+  region          = var.region
+  ami_id          = var.ec2_ami_id
+  instance_type   = var.ec2_instance_type
+  subnet_id       = module.vpc.public_subnet_id
+  instance_name   = "ctxcloud-ec2"
+}
 
 # Route table for private subnet to route traffic through the firewall's trust interface
 resource "aws_route_table" "private" {
