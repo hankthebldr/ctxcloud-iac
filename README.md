@@ -44,26 +44,29 @@ The infrastructure is meticulously designed to balance accessibility and securit
 
 To visualize the setup, here’s a textual representation of the architecture:
 
+```
 Internet
-  |
-  +--------------------------------+
-  |                                |
-Internet Gateway                 |
-  |                                |
-  +--------------------------------+
-  |
+   |
++--------------------------------+
+|        Internet Gateway        |
++--------------------------------+
+   |
 Public Subnet
-  |--- PAN NGFW (Untrust Interface)
-  |      |
-  |      | Security Policies
-  |      |
-  +--------------------------------+
-         |
-Private Subnet                   |
-  |--- PAN NGFW (Trust Interface) |
-  |                               |
-  |--- Kubernetes Server ---------+
-        (Running CTFd.io)
+   |
+PAN NGFW (Untrust Interface)
+   |
+[ Security Policies ]
+   |
++--------------------------------+
+|        Private Subnet          |
++--------------------------------+
+   |
+PAN NGFW (Trust Interface)
+   |
+Kubernetes Server
+   |
+(Running CTFd.io)
+```
 
 ### Traffic Flow
 
