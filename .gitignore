@@ -1,0 +1,16 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+terraform.tfvars
+*.auto.tfvars
+crash.log
+*.lock.hcl
+
+# macOS files
+.DS_Store
+._*
+
+# IDE/editor files (optional)
+.vscode/
